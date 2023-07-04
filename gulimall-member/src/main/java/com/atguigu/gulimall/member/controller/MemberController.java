@@ -3,6 +3,7 @@ package com.atguigu.gulimall.member.controller;
 import java.util.Arrays;
 import java.util.Map;
 
+import com.atguigu.gulimall.member.feign.TestOpenFeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,6 +30,19 @@ import com.atguigu.common.utils.R;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+
+    @Autowired
+    private TestOpenFeignService testOpenFeignService;
+    /**
+     * 测试远程调用memer服务调用coupon服务
+     * 可以删除
+     */
+    @RequestMapping("/coupon")
+    public R testFeign(){
+        R list = testOpenFeignService.list();
+        return R.ok().put("远程调用成功",list);
+
+    }
 
     /**
      * 列表
