@@ -14,7 +14,7 @@ class GulimallCouponApplicationTests {
     @Test
     void contextLoads() {
         CouponEntity couponEntity = new CouponEntity();
-        couponEntity.setCouponName("测试而已辣");
+        couponEntity.setCouponName("在家测试而已辣");
         couponService.save(couponEntity);
         System.out.println("插入测试");
 
