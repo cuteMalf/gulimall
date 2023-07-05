@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,9 +28,23 @@ import com.atguigu.common.utils.R;
  */
 @RestController
 @RequestMapping("coupon/coupon")
+@RefreshScope
 public class CouponController {
     @Autowired
     private CouponService couponService;
+    @Value("${coupon.user.name}")
+    private String name;
+    @Value("${coupon.user.age}")
+    private String age;
+
+    /**
+     * 测试nacos配置中心，可删除
+     */
+    @RequestMapping("/test")
+    public R test(){
+        return R.ok("测试nacos配置中心，可删除").put("name",name).put("age",age);
+
+    }
 
     /**
      * 列表
