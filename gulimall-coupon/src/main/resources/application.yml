@@ -7,7 +7,7 @@ spring:
         server-addr: 127.0.0.1:8848
       config:
         server-addr: 127.0.0.1:8848
-        namespace: d4ec50dd-e567-47fe-a30f-242f21e800bd
+        namespace: d6ca782e-0f97-4616-acbc-f90ec268ba92
 #        group: dev
 
   config:
